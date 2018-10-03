@@ -1,0 +1,6 @@
+.CartList {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #999;
+  transition: all 0.5s;
+}
