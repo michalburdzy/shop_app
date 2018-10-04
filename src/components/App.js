@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Cart from "./Cart";
 import Shop from "./Shop";
 import "../style/App.css";
-import shopItemsList from "./shopItemsList";
+import shopItemsList from "../helpers/shopItemsList";
+// import { toggleCart, addItem, removeItem } from '../helpers/App'
 
 class App extends Component {
   constructor() {
@@ -10,10 +11,13 @@ class App extends Component {
     this.state = {
       cartVisible: false,
       shopItemsList,
-      cartItems: []
+      cartItems: [],
+      sortShopBy: "name"
     };
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.sortShop = this.sortShop.bind(this);
+    this.changeAmount = this.changeAmount.bind(this);
   }
 
   toggleCart = () => {
@@ -26,10 +30,21 @@ class App extends Component {
 
   addItem(item) {
     // look in state.cartItems if there is already such item
-
-    let stateArr = this.state.cartItems;
-    stateArr.push(item);
-    this.setState({ cartItems: stateArr });
+    let alreadyInCart = this.state.cartItems.find(cartItem => {
+      return cartItem.id === item.id;
+    });
+    if (alreadyInCart) {
+      let alreadyInCartIndex = this.state.cartItems.indexOf(alreadyInCart);
+      let cartItems = this.state.cartItems;
+      cartItems[alreadyInCartIndex].amount++;
+      this.setState({
+        cartItems
+      });
+    } else {
+      let stateArr = this.state.cartItems;
+      stateArr.push(item);
+      this.setState({ cartItems: stateArr });
+    }
   }
 
   removeItem(id) {
@@ -40,6 +55,39 @@ class App extends Component {
     this.setState({
       cartItems: newState
     });
+  }
+
+  changeAmount(item, amount) {
+    const cartItems = this.state.cartItems;
+    const foundIndex = cartItems.indexOf(item);
+    cartItems[foundIndex].amount = amount;
+    this.setState({
+      cartItems
+    });
+  }
+
+  sortShopItems() {
+    let sortBy = this.state.sortShopBy;
+    let shopArr = this.state.shopItemsList;
+    shopArr.sort((a, b) => (a[sortBy] > b[sortBy] ? 1 : 0));
+    this.setState({
+      shopItemsList: shopArr
+    });
+  }
+
+  sortShop(sortBy) {
+    this.setState(
+      {
+        sortShopBy: sortBy
+      },
+      () => {
+        this.sortShopItems();
+      }
+    );
+  }
+
+  componentDidMount() {
+    this.sortShopItems();
   }
 
   render() {
@@ -56,10 +104,16 @@ class App extends Component {
         <Cart
           cartItems={this.state.cartItems}
           toggleCart={this.toggleCart}
+          cartVisible={this.state.cartVisible}
           removeItem={this.removeItem}
           cartStyle={cartStyle}
+          changeAmount={this.changeAmount}
         />
-        <Shop shopItems={this.state.shopItemsList} addItem={this.addItem} />
+        <Shop
+          shopItems={this.state.shopItemsList}
+          addItem={this.addItem}
+          sortShop={this.sortShop}
+        />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 .CartList {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   border: 5px solid #999;
   transition: all 0.5s;
 }

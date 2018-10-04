@@ -7,7 +7,7 @@ class Shop extends Component {
   render() {
     return (
       <div className="Shop">
-        <SortBar />
+        <SortBar sortShop={this.props.sortShop} />
         <ShopList
           shopItems={this.props.shopItems}
           addItem={this.props.addItem}

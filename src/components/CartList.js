@@ -12,6 +12,7 @@ class CartList extends Component {
             item={item}
             key={item.id}
             removeItem={this.props.removeItem}
+            changeAmount={this.props.changeAmount}
           />
         );
       });

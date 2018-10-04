@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../style/ShopItem.css";
+import PropTypes from "prop-types";
 
 class ShopItem extends Component {
   constructor(props) {
@@ -11,13 +12,14 @@ class ShopItem extends Component {
   }
 
   render() {
+    const { image, name, price } = this.props.item;
     return (
       <div className="ShopItem">
         <div>
-          <img src={this.props.item.image} alt="Shop article" />
+          <img src={image} alt="Shop article" />
         </div>
-        <div>{this.props.item.name}</div>
-        <div>{this.props.item.price}</div>
+        <div>{name}</div>
+        <div>${price}</div>
         <div>
           <button onClick={this.handleClick}>Add to cart</button>
         </div>
@@ -25,5 +27,14 @@ class ShopItem extends Component {
     );
   }
 }
+
+ShopItem.propTypes = {
+  item: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    amount: PropTypes.number
+  })
+};
 
 export default ShopItem;
