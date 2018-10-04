@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import CartList from "./CartList";
-import "../style/Cart.css";
 
 class Cart extends Component {
   toggleCart = () => {

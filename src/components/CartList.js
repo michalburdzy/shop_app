@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import CartItem from "./CartItem";
-import "../style/CartList.css";
 
 class CartList extends Component {
   render() {

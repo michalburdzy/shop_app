@@ -1,32 +1,45 @@
 body {
-  font-size: 10px; }
-  body .App {
-    text-align: center; }
-    body .App .cart {
+  font-size: 10px;
+
+  .App {
+    text-align: center;
+
+    .cart {
       display: block;
       border: 3px solid white;
       background-color: azure;
       transition: all 0.5s;
-      overflow: hidden; }
-      body .App .cart .CartList {
+      overflow: hidden;
+
+      .CartList {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         border: 5px solid #999;
-        transition: all 0.5s; }
-        body .App .cart .CartList .CartItem {
+        transition: all 0.5s;
+
+        .CartItem {
           display: flex;
           margin: 0 auto;
-          border: 2px solid #fff; }
-          body .App .cart .CartList .CartItem .CartItem img {
-            max-height: 100px; }
-    body .App .Shop {
-      border: 3px solid #000; }
-      body .App .Shop .ShopList {
+          border: 2px solid #fff;
+
+          .CartItem img {
+            max-height: 100px;
+          }
+        }
+      }
+    }
+
+    .Shop {
+      border: 3px solid #000;
+
+      .ShopList {
         display: flex;
         flex-wrap: wrap;
-        margin: 4rem 10%; }
-        body .App .Shop .ShopList .ShopItem {
+
+        margin: 4rem 10%;
+
+        .ShopItem {
           display: flex;
           flex-direction: column;
           height: 250px;
@@ -34,7 +47,12 @@ body {
           background-color: blanchedalmond;
           border: 5px solid #fff;
           overflow: hidden;
-          margin: 2rem; }
-
+          margin: 2rem;
+        }
+      }
+    }
+  }
+}
 .ShopItem img {
-  max-width: 100%; }
+  max-width: 100%;
+}

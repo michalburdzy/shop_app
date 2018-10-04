@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Cart from "./Cart";
 import Shop from "./Shop";
-import "../style/App.css";
 import shopItemsList from "../helpers/shopItemsList";
 // import { toggleCart, addItem, removeItem } from '../helpers/App'
 

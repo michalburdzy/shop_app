@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ShopList from "./ShopList";
 import SortBar from "./SortBar";
-import "../style/Shop.css";
 
 class Shop extends Component {
   render() {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../style/SortBar.css";
 
 class SortBar extends Component {
   constructor(props) {

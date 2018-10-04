@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ShopItem from "./ShopItem";
-import "../style/ShopList.css";
 
 class ShopList extends Component {
   render() {
