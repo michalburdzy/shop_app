@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../style/CartItem.css";
+import "../style/CartItem.scss";
 import PropTypes from "prop-types";
 
 class CartItem extends Component {
@@ -10,7 +10,14 @@ class CartItem extends Component {
   }
 
   handleChange(e) {
-    this.props.changeAmount(this.props.item, e.target.value);
+    let amount = parseInt(e.target.value);
+    if (isNaN(amount)) {
+      amount = 0;
+    }
+    if (amount[0] === 0) {
+      amount = amount.slice(1);
+    }
+    this.props.changeAmount(this.props.item, amount);
   }
 
   handleClick() {
@@ -19,18 +26,27 @@ class CartItem extends Component {
   render() {
     const { image, name, price, amount } = this.props.item;
     return (
-      <div className="CartItem">
-        <img src={image} alt="cart item" />
-        <h3>{name}</h3>
-        <p>${price}</p>
-
-        <input
-          type="number"
-          min="0"
-          onChange={this.handleChange}
-          value={amount}
-        />
-        <button onClick={this.handleClick}>Remove from cart</button>
+      <div className="cartItem">
+        <div className="cartItem__container">
+          <img className="cartItem__image" src={image} alt="cart item" />
+          <h3 className="cartItem__name">{name}</h3>
+        </div>
+        <div className="cartItem__container">
+          <p className="cartItem__price">${price}</p>
+          <input
+            // pattern="\d{3}"
+            maxLength="3"
+            className="cartItem__amount"
+            type="number"
+            min="0"
+            max="999"
+            onChange={this.handleChange}
+            value={amount}
+          />
+          <button className="cartItem__remove" onClick={this.handleClick}>
+            Remove from cart
+          </button>
+        </div>
       </div>
     );
   }

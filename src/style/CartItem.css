@@ -1,9 +1,0 @@
-.CartItem {
-  display: flex;
-  margin: 0 auto;
-  border: 2px solid #fff;
-}
-
-.CartItem img {
-  max-height: 100px;
-}

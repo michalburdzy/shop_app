@@ -1,37 +1,34 @@
 import React, { Component } from "react";
-import CartList from "./CartList";
-import "../style/Cart.css";
+import CartItem from "./CartItem";
+import "../style/Cart.scss";
 
 class Cart extends Component {
-  toggleCart = () => {
-    this.props.toggleCart();
-  };
   render() {
-    let amount = 0;
-    this.props.cartItems.map(item => {
-      return (amount += item.price * item.amount);
-    });
-
-    let buttonText = "Show Cart";
-    if (this.props.cartVisible) {
-      buttonText = "Hide Cart";
+    let cartBodyClass = "cart__body cart__body--hidden";
+    if (this.props.cartVisible === true) {
+      cartBodyClass = "cart__body cart__body--visible";
     }
 
+    let cartItems = "Loading..";
+    if (this.props.cartItems.length > 0) {
+      cartItems = this.props.cartItems.map(item => {
+        return (
+          <CartItem
+            item={item}
+            key={item.id}
+            removeItem={this.props.removeItem}
+            changeAmount={this.props.changeAmount}
+          />
+        );
+      });
+    } else {
+      cartItems = <div>Your cart is empty</div>;
+    }
     return (
-      <div className="cart">
-        <div>
-          <button onClick={this.toggleCart}>{buttonText}</button>
-        </div>
-        <CartList
-          cartItems={this.props.cartItems}
-          removeItem={this.props.removeItem}
-          style={this.props.cartStyle}
-          changeAmount={this.props.changeAmount}
-        />
-        <div>${amount.toFixed(2)}</div>
+      <div className={cartBodyClass} style={this.props.style}>
+        {cartItems}
       </div>
     );
   }
 }
-
 export default Cart;

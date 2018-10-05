@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: azure;
+  height: 8rem;
+  width: 100vw;
+  max-width: 100%;
+  position: fixed;
+  z-index: 500;
+  border-radius: 0;
+
+  &__logo {
+    width: 10vw;
+  }
+
+  &__menu {
+    width: 20vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 2rem;
+
+    &--price {
+      // margin-right: 3rem;
+      font-size: 4rem;
+    }
+    &--toggle {
+      & button {
+        height: 5rem;
+        width: 10rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}

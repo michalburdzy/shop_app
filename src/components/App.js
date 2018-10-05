@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Cart from "./Cart";
+import Navbar from "./Navbar";
 import Shop from "./Shop";
-import "../style/App.css";
+import "../style/App.scss";
 import shopItemsList from "../helpers/shopItemsList";
 // import { toggleCart, addItem, removeItem } from '../helpers/App'
 
@@ -37,13 +37,11 @@ class App extends Component {
       let alreadyInCartIndex = this.state.cartItems.indexOf(alreadyInCart);
       let cartItems = this.state.cartItems;
       cartItems[alreadyInCartIndex].amount++;
-      this.setState({
-        cartItems
-      });
+      this.setState({ cartItems, cartVisible: true });
     } else {
       let stateArr = this.state.cartItems;
       stateArr.push(item);
-      this.setState({ cartItems: stateArr });
+      this.setState({ cartItems: stateArr, cartVisible: true });
     }
   }
 
@@ -91,22 +89,13 @@ class App extends Component {
   }
 
   render() {
-    let cartStyle = {
-      height: "0",
-      visibility: "hidden",
-      display: "none"
-    };
-    if (this.state.cartVisible) {
-      cartStyle = { height: "100%" };
-    }
     return (
       <div className="App">
-        <Cart
+        <Navbar
           cartItems={this.state.cartItems}
           toggleCart={this.toggleCart}
           cartVisible={this.state.cartVisible}
           removeItem={this.removeItem}
-          cartStyle={cartStyle}
           changeAmount={this.changeAmount}
         />
         <Shop

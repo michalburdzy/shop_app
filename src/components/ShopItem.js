@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../style/ShopItem.css";
+import "../style/ShopItem.scss";
 import PropTypes from "prop-types";
 
 class ShopItem extends Component {
@@ -14,14 +14,31 @@ class ShopItem extends Component {
   render() {
     const { image, name, price } = this.props.item;
     return (
-      <div className="ShopItem">
-        <div>
-          <img src={image} alt="Shop article" />
+      <div className="shopItem">
+        <div className="shopItem__side--front">
+          <div className="shopItem__image--front">
+            <img src={image} alt="Shop article" />
+          </div>
+          <div>
+            <h2 className="shopItem__title">{name}</h2>
+          </div>
+          <div>${price}</div>
         </div>
-        <div>{name}</div>
-        <div>${price}</div>
-        <div>
-          <button onClick={this.handleClick}>Add to cart</button>
+        <div className="shopItem__side--back">
+          <img
+            className="shopItem__image--back"
+            src={image}
+            alt="Shop article"
+          />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+            iaculis sapien a euismod eleifend.
+          </p>
+          <div>
+            <button className="shopItem__button" onClick={this.handleClick}>
+              add to cart
+            </button>
+          </div>
         </div>
       </div>
     );

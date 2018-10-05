@@ -1,0 +1,25 @@
+.cart {
+  &__body {
+    z-index: 1000;
+    padding: 0.3rem;
+    // background-color: yellowgreen;
+    position: absolute;
+    background-color: rgb(255, 180, 180);
+    width: 60vw;
+    left: 15vw;
+    top: 0;
+    height: auto !important;
+
+    -webkit-transition: all 0.7s cubic-bezier(0.74, -0.61, 0.05, 1.53);
+    -moz-transition: all 0.7s cubic-bezier(0.74, -0.61, 0.05, 1.53);
+    -o-transition: all 0.7s cubic-bezier(0.74, -0.61, 0.05, 1.53);
+    transition: all 0.7s cubic-bezier(0.74, -0.61, 0.05, 1.53);
+
+    &--hidden {
+      transform: translateY(-105%);
+    }
+    &--visible {
+      transform: translateY(0);
+    }
+  }
+}

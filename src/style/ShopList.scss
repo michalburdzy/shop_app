@@ -1,6 +1,7 @@
 .ShopList {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 
-  margin: 4rem 10%;
+  margin: 4rem;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../style/SortBar.css";
+import "../style/SortBar.scss";
 
 class SortBar extends Component {
   constructor(props) {
@@ -13,10 +13,11 @@ class SortBar extends Component {
 
   render() {
     return (
-      <div className="SortBar">
-        <select onChange={this.handleChange}>
-          <option value="name">Name</option>
-          <option value="price">Price</option>
+      <div className="sortBar">
+        Sort articles by &nbsp;
+        <select className="sortBar__select" onChange={this.handleChange}>
+          <option value="name">name</option>
+          <option value="price">price</option>
         </select>
       </div>
     );
