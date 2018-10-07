@@ -5,8 +5,19 @@ import PropTypes from "prop-types";
 class CartItem extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.validateInput = this.validateInput.bind(this);
+  }
+
+  validateInput(val) {
+    if (val[0] === 0) {
+      val = val.slice(1);
+    }
+    if (val.length > 3) {
+      val = val.slice(-1);
+      return val;
+    }
   }
 
   handleChange(e) {
@@ -14,17 +25,19 @@ class CartItem extends Component {
     if (isNaN(amount)) {
       amount = 0;
     }
-    if (amount[0] === 0) {
-      amount = amount.slice(1);
+    if (amount === 0) {
+      this.handleRemove();
+    } else {
+      this.props.changeAmount(this.props.item, amount);
     }
-    this.props.changeAmount(this.props.item, amount);
   }
 
-  handleClick() {
+  handleRemove() {
     this.props.removeItem(this.props.item.id);
   }
   render() {
-    const { image, name, price, amount } = this.props.item;
+    let { image, name, price, amount } = this.props.item;
+
     return (
       <div className="cartItem">
         <div className="cartItem__container">
@@ -43,7 +56,7 @@ class CartItem extends Component {
             onChange={this.handleChange}
             value={amount}
           />
-          <button className="cartItem__remove" onClick={this.handleClick}>
+          <button className="cartItem__remove" onClick={this.handleRemove}>
             Remove from cart
           </button>
         </div>

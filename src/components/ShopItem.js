@@ -21,8 +21,11 @@ class ShopItem extends Component {
           </div>
           <div>
             <h2 className="shopItem__title">{name}</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+              iaculis sapien a euismod eleifend.
+            </p>
           </div>
-          <div>${price}</div>
         </div>
         <div className="shopItem__side--back">
           <img
@@ -30,10 +33,7 @@ class ShopItem extends Component {
             src={image}
             alt="Shop article"
           />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            iaculis sapien a euismod eleifend.
-          </p>
+          <div className="shopItem__price">${price}</div>
           <div>
             <button className="shopItem__button" onClick={this.handleClick}>
               add to cart
