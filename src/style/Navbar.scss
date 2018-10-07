@@ -1,3 +1,5 @@
+@import "variables";
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -8,6 +10,7 @@
   position: fixed;
   z-index: 500;
   border-radius: 0;
+  box-shadow: $box-shadow-light;
 
   &__logo {
     width: 10vw;
@@ -23,12 +26,47 @@
     &--price {
       // margin-right: 3rem;
       font-size: 4rem;
+      text-shadow: $text-shadow;
     }
     &--toggle {
-      & button {
+      &-button {
+        display: inline-block;
+        border: none;
+        padding: 1rem 2rem;
+        margin: 0;
+        text-decoration: none;
+        background: #378ffa;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+
         height: 5rem;
-        width: 10rem;
+        width: 15rem;
         font-size: 2rem;
+        transition: all 0.2s;
+
+        &:focus {
+          outline: 1px solid #378ffa;
+          outline-offset: -3px;
+          -moz-outline-radius: 5px;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          background: #58a3ff;
+          box-shadow: $box-shadow-big;
+          outline-offset: -3px;
+          -moz-outline-radius: 5px;
+        }
+
+        &:active {
+          transform: translateY(1px);
+        }
       }
     }
   }

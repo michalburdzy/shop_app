@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import Shop from "./Shop";
 import "../style/App.scss";
 import shopItemsList from "../helpers/shopItemsList";
-// import { toggleCart, addItem, removeItem } from '../helpers/App'
 
 class App extends Component {
   constructor() {

@@ -47,6 +47,7 @@
   &__image {
     &--front {
       max-width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
     }
     &--back {
       max-width: 90%;

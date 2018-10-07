@@ -31,7 +31,12 @@ class Navbar extends Component {
         <div className="nav__menu">
           <div className="nav__menu--price">${amount.toFixed(2)}</div>
           <div className="nav__menu--toggle">
-            <button onClick={this.toggleCart}>{buttonText}</button>
+            <button
+              className="nav__menu--toggle-button"
+              onClick={this.toggleCart}
+            >
+              {buttonText}
+            </button>
           </div>
         </div>
         {/* </div> */}

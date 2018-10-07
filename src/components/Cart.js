@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CartItem from "./CartItem";
 import "../style/Cart.scss";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class Cart extends Component {
   render() {
@@ -9,26 +10,36 @@ class Cart extends Component {
       cartBodyClass = "cart__body cart__body--visible";
     }
 
-    let cartItems = "Loading..";
     if (this.props.cartItems.length > 0) {
-      cartItems = this.props.cartItems.map(item => {
-        return (
-          <CartItem
-            item={item}
-            key={item.id}
-            removeItem={this.props.removeItem}
-            changeAmount={this.props.changeAmount}
-          />
-        );
-      });
+      return (
+        <div className={cartBodyClass} style={this.props.style}>
+          <ReactCSSTransitionGroup
+            transitionName="fade"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+          >
+            {this.props.cartItems.map(item => {
+              return (
+                <CartItem
+                  item={item}
+                  key={item.id}
+                  removeItem={this.props.removeItem}
+                  changeAmount={this.props.changeAmount}
+                />
+              );
+            })}
+          </ReactCSSTransitionGroup>
+        </div>
+      );
     } else {
-      cartItems = <div>Your cart is empty</div>;
+      return (
+        <div className={cartBodyClass.concat(" cart--empty")}>
+          Your cart is empty
+        </div>
+      );
     }
-    return (
-      <div className={cartBodyClass} style={this.props.style}>
-        {cartItems}
-      </div>
-    );
   }
 }
 export default Cart;
