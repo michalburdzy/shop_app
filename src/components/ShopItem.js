@@ -15,30 +15,35 @@ class ShopItem extends Component {
     const { image, name, price } = this.props.item;
     return (
       <div className="shopItem">
-        <div className="shopItem__side--front">
-          <div className="shopItem__image--front">
-            <img src={image} alt="Shop article" />
-          </div>
+        <div className="shopItem__side shopItem__side--front">
+          <img
+            className="shopItem__image shopItem__image--front"
+            src={image}
+            alt="Shop article"
+          />
           <div>
             <h2 className="shopItem__title">{name}</h2>
-            <p>
+            <p className="shopItem__description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
               iaculis sapien a euismod eleifend.
             </p>
           </div>
         </div>
-        <div className="shopItem__side--back">
+        <div className="shopItem__side shopItem__side--back">
           <img
-            className="shopItem__image--back"
+            className="shopItem__image shopItem__image--back"
             src={image}
             alt="Shop article"
           />
           <div className="shopItem__price">${price}</div>
-          <div>
-            <button className="shopItem__button" onClick={this.handleClick}>
-              add to cart
-            </button>
-          </div>
+          {/* <div className="shopItem__button shopItem__button--container"> */}
+          <button
+            className="shopItem__button shopItem__button--button"
+            onClick={this.handleClick}
+          >
+            add to cart
+          </button>
+          {/* </div> */}
         </div>
       </div>
     );

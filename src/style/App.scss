@@ -8,5 +8,12 @@
   transition: all 1s linear;
   // padding: 0 5%;
 
-  background-image: linear-gradient(#ffeedd, rgb(255, 153, 0));
+  background-image: linear-gradient(
+      rgba(255, 238, 221, 0.7),
+      rgba(255, 255, 79, 0.3)
+    ),
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d62aa1141ac7384a3124dec53ee2256a&auto=format&fit=crop&w=1950&q=80");
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

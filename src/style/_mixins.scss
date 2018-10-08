@@ -20,3 +20,17 @@
     }
   }
 }
+
+@mixin button {
+  border: none;
+  border-radius: 0;
+  letter-spacing: 0.5px;
+  background-color: $color_button_1;
+  outline-color: $color_button_1;
+  cursor: pointer;
+  display: block;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  transition: all 0.2s;
+}

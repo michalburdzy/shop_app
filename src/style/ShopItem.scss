@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins";
+
 .shopItem {
   display: flex;
   flex-direction: column;
@@ -11,6 +14,8 @@
   perspective: 1000px;
 
   &__side {
+    background-color: #fff;
+
     &--front {
       height: 45rem;
       width: 30rem;
@@ -18,8 +23,8 @@
       top: 0;
       left: 0;
       backface-visibility: hidden;
-      background-color: #aaa;
-      transition: all 0.5s;
+      transition: all 0.5s 0.15s;
+      clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
     }
     &--back {
       height: 45rem;
@@ -28,10 +33,10 @@
       top: 0;
       left: 0;
       backface-visibility: hidden !important;
-      background-color: #dbedff;
-      transition: all 0.5s;
+      transition: all 0.5s 0.15s;
       transform: rotateY(180deg);
       overflow: hidden;
+      clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
     }
   }
 
@@ -40,39 +45,73 @@
   }
 
   &:hover &__side--back {
-    transition: all 0.5s;
     transform: rotateY(0);
   }
 
   &__image {
+    max-width: 100%;
+    clip-path: polygon(0 5%, 100% 0, 100% 93%, 0 100%);
+    z-index: 100;
+
     &--front {
-      max-width: 100%;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
     }
     &--back {
-      max-width: 90%;
-      border-radius: 20px;
-      margin-top: 5%;
+      transform: rotateY(180deg);
     }
   }
 
   &__title {
+    transform: rotate(-5deg);
     font-size: 3rem;
+    transform: skew(-10deg, 0) rotate(-4deg);
+  }
+
+  &__description {
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    font-size: 80%;
+    margin-top: 1rem;
+
+    padding: 1rem;
+    transform: skew(-10deg, 0) rotate(-4deg);
   }
 
   &__price {
     font-size: 4rem;
-    margin-top: 3rem;
+    transform: skewX(4deg) rotate(4deg);
+    letter-spacing: 5px;
   }
 
   &__button {
+    @include button;
+    transition: all 0.1s;
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
     left: 0;
-    width: 100%;
+    width: 100.2%;
     height: 7rem;
+    transform: rotate(4deg) skew(4deg);
     border: none;
-    // text-transform: uppercase;
-    font-size: 4rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: none;
+
+    border-width: 0px 2px 3px 0px;
+    border-style: inset;
+    border-color: #018fa5;
+
+    border-radius: 2px;
+
+    &:hover {
+      background-color: $color_button_1_light;
+      // transform: skewY(4deg);
+    }
+
+    &:active {
+      transform: skewY(4deg);
+      color: rgb(176, 255, 160);
+      border: none;
+      // padding-bottom: 5px;
+    }
   }
 }

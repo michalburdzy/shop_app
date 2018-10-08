@@ -1,10 +1,11 @@
 @import "variables";
+@import "mixins";
 
 .cartItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 1rem auto;
   background-color: rgba(156, 154, 154, 0.9);
   color: #fff;
   margin-bottom: 0.5rem;
@@ -18,6 +19,7 @@
 
   &__name {
     display: inline-block;
+    margin-left: 5rem;
   }
   &__image {
     display: inline-block;
@@ -47,9 +49,33 @@
     display: inline-block;
   }
   &__remove {
+    @include button;
+    text-transform: lowercase;
     display: inline-block;
     height: 5rem;
     margin-left: 5rem;
     margin-right: 5rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    box-shadow: $box-shadow;
+
+    &:focus {
+      outline: 1px solid $color_button_1;
+      outline-offset: -3px;
+      -moz-outline-radius: 5px;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      background: $color_button_1_light;
+      box-shadow: $box-shadow-big;
+      outline-offset: -3px;
+      -moz-outline-radius: 5px;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
   }
 }

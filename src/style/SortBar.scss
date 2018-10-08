@@ -1,8 +1,11 @@
+@import "variables";
+
 .sortBar {
   height: 3rem;
   font-size: 3rem;
-
+  text-shadow: $text-shadow;
   &__select {
     font-size: 3rem;
+    box-shadow: $box-shadow;
   }
 }

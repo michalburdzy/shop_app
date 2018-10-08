@@ -57,7 +57,7 @@ class CartItem extends Component {
             value={amount}
           />
           <button className="cartItem__remove" onClick={this.handleRemove}>
-            Remove from cart
+            Remove
           </button>
         </div>
       </div>

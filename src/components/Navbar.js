@@ -19,9 +19,11 @@ class Navbar extends Component {
 
     return (
       <div className="nav">
-        <div className="nav__logo">LOGO</div>
-        {/* <div className="cart"> */}
-
+        <img
+          className="nav__logo"
+          src="https://res.cloudinary.com/dpyegjkuf/image/upload/v1539036333/favicon_fox8si.png"
+          alt="logo"
+        />
         <Cart
           cartItems={this.props.cartItems}
           removeItem={this.props.removeItem}
@@ -39,7 +41,6 @@ class Navbar extends Component {
             </button>
           </div>
         </div>
-        {/* </div> */}
       </div>
     );
   }
