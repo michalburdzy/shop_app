@@ -1,7 +1,3 @@
-todo
-
-- if supports
-- mobile cards
-- api
+herok- api
 
 - tests: - cypress - mocha / jest
