@@ -11,7 +11,8 @@ const shopItemsList = [
     name: 'Steel Soap',
     price: 99.0,
     image:
-      'https://res.cloudinary.com/dpyegjkuf/image/upload/v1538942469/shoes_2_sxjlly.jpg',
+      'https://res.cloudinary.com/dpyegjkuf/image/upload/v1538942467/shirt_4_b2ytlm.jpg',
+
     id: 2,
     amount: 1,
   },
@@ -27,7 +28,7 @@ const shopItemsList = [
     name: 'Fresh Salad',
     price: 3.49,
     image:
-      'https://res.cloudinary.com/dpyegjkuf/image/upload/v1538942467/shirt_4_b2ytlm.jpg',
+      'https://res.cloudinary.com/dpyegjkuf/image/upload/v1538942467/shirt_2_xadxjv.jpg',
     id: 4,
     amount: 1,
   },
@@ -35,7 +36,8 @@ const shopItemsList = [
     name: 'Concrete Shoes',
     price: 39.99,
     image:
-      'https://res.cloudinary.com/dpyegjkuf/image/upload/v1538942467/shirt_2_xadxjv.jpg',
+      'https://res.cloudinary.com/dpyegjkuf/image/upload/v1538942469/shoes_2_sxjlly.jpg',
+
     id: 5,
     amount: 1,
   },

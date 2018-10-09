@@ -6,7 +6,7 @@
   flex-direction: column;
   height: 45rem;
   width: 30rem;
-  margin: 2rem;
+  margin: 4rem 2rem 4rem 2rem;
   border-collapse: separate;
   position: relative;
   perspective: 1000px;
@@ -23,6 +23,7 @@
       backface-visibility: hidden !important;
       transition: all 0.5s 0.15s;
       clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+      z-index: 20;
     }
     &--back {
       height: 45rem;
@@ -35,15 +36,28 @@
       transform: rotateY(180deg);
       overflow: hidden;
       clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+
+      @include respond(tab-land) {
+        top: 25%;
+        transform: rotateY(0);
+        z-index: 10;
+        clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+      }
     }
   }
 
   &:hover &__side--front {
     transform: rotateY(-180deg);
+    @include respond(tab-land) {
+      transform: unset;
+    }
   }
 
   &:hover &__side--back {
     transform: rotateY(0);
+    @include respond(tab-land) {
+      transform: unset;
+    }
   }
 
   &__image {
@@ -82,6 +96,11 @@
     letter-spacing: 5px;
     @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
       transform: skewX(4deg) rotate(4deg);
+
+      @include respond(tab-land) {
+        transform: skewX(-4deg) rotate(-4deg);
+        margin-top: 2rem;
+      }
     }
   }
 
@@ -108,6 +127,10 @@
     @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
       transform: rotate(4deg) skew(4deg);
       bottom: 4px;
+
+      @include respond(tab-land) {
+        transform: skewX(-4deg) rotate(-4deg);
+      }
     }
 
     &:hover {
@@ -118,7 +141,7 @@
       color: rgb(176, 255, 160);
       border: none;
       @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
-        transform: skewY(4deg);
+        transform: skewY(-4deg);
       }
     }
   }

@@ -38,5 +38,6 @@
   &--empty {
     text-shadow: $text-shadow-small;
     transition: 0.3s linear;
+    margin-top: 0;
   }
 }
