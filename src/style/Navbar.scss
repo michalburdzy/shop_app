@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 .nav {
   display: flex;
@@ -27,7 +27,6 @@
     margin-right: 2rem;
 
     &--price {
-      // margin-right: 3rem;
       font-size: 4rem;
       text-shadow: $text-shadow;
     }
@@ -36,12 +35,11 @@
         @include button;
         padding: 1rem 2rem;
         margin: 0;
+        margin-right: 8rem;
         text-decoration: none;
         font-size: 1rem;
-
         border-radius: 5px;
         box-shadow: $box-shadow;
-
         height: 5rem;
         width: 15rem;
         font-size: 2rem;

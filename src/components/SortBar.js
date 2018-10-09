@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "../style/SortBar.scss";
+import React, { Component } from 'react';
+import '../style/SortBar.scss';
 
 class SortBar extends Component {
   constructor(props) {

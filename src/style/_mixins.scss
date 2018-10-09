@@ -1,20 +1,20 @@
 @mixin respond($size) {
-  @if ($size == "desktop-large") {
+  @if ($size == 'desktop') {
     @media only screen and (min-width: 75em) {
       @content;
     }
   }
-  @if ($size == "tab-land") {
+  @if ($size == 'tab-land') {
     @media only screen and (max-width: 75em) {
       @content;
     }
   }
-  @if ($size == "tab-port") {
+  @if ($size == 'tab-port') {
     @media only screen and (max-width: 56.25em) {
       @content;
     }
   }
-  @if ($size == "mobile") {
+  @if ($size == 'mobile') {
     @media only screen and (max-width: 37.5em) {
       @content;
     }

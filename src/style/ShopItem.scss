@@ -1,13 +1,11 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 .shopItem {
   display: flex;
   flex-direction: column;
   height: 45rem;
   width: 30rem;
-  // background-color: blanchedalmond;
-  // overflow: hidden;
   margin: 2rem;
   border-collapse: separate;
   position: relative;
@@ -22,7 +20,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      backface-visibility: hidden;
+      backface-visibility: hidden !important;
       transition: all 0.5s 0.15s;
       clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
     }
@@ -61,9 +59,10 @@
   }
 
   &__title {
-    transform: rotate(-5deg);
     font-size: 3rem;
-    transform: skew(-10deg, 0) rotate(-4deg);
+    @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
+      transform: skew(-10deg, 0) rotate(-4deg);
+    }
   }
 
   &__description {
@@ -73,24 +72,28 @@
     margin-top: 1rem;
 
     padding: 1rem;
-    transform: skew(-10deg, 0) rotate(-4deg);
+    @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
+      transform: skew(-10deg, 0) rotate(-4deg);
+    }
   }
 
   &__price {
     font-size: 4rem;
-    transform: skewX(4deg) rotate(4deg);
     letter-spacing: 5px;
+    @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
+      transform: skewX(4deg) rotate(4deg);
+    }
   }
 
   &__button {
     @include button;
     transition: all 0.1s;
     position: absolute;
-    bottom: 4px;
-    left: 0;
-    width: 100.2%;
+    bottom: -5px;
+    right: 0;
+    width: 100.3%;
+    min-width: 100%;
     height: 7rem;
-    transform: rotate(4deg) skew(4deg);
     border: none;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
@@ -102,16 +105,21 @@
 
     border-radius: 2px;
 
+    @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
+      transform: rotate(4deg) skew(4deg);
+      bottom: 4px;
+    }
+
     &:hover {
       background-color: $color_button_1_light;
-      // transform: skewY(4deg);
     }
 
     &:active {
-      transform: skewY(4deg);
       color: rgb(176, 255, 160);
       border: none;
-      // padding-bottom: 5px;
+      @supports (clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%)) {
+        transform: skewY(4deg);
+      }
     }
   }
 }

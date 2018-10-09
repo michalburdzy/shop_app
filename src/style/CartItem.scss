@@ -1,15 +1,13 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 .cartItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem auto;
-  background-color: rgba(156, 154, 154, 0.9);
+  margin: 1rem auto 0.5rem 1rem;
+  background-color: rgba(15, 41, 88, 0.95);
   color: #fff;
-  margin-bottom: 0.5rem;
-
   box-shadow: $box-shadow-light;
 
   &__container {
@@ -20,10 +18,19 @@
   &__name {
     display: inline-block;
     margin-left: 5rem;
+
+    @include respond(tab-port) {
+      margin-left: 2rem;
+      display: inline;
+    }
   }
   &__image {
     display: inline-block;
     max-height: 10rem;
+
+    @include respond(tab-land) {
+      max-height: 8rem;
+    }
   }
   &__amount {
     margin-left: 5rem;
@@ -32,6 +39,16 @@
     height: 3rem;
     width: 8.5rem;
     text-align: center;
+
+    @include respond(tab-land) {
+      margin-left: 2rem;
+    }
+
+    @include respond(tab-port) {
+      margin-left: 2rem;
+      font-size: 4rem;
+      height: 4rem;
+    }
 
     &::-webkit-inner-spin-button {
       width: 2rem;
@@ -43,10 +60,13 @@
       margin-right: -0.5rem;
       margin-left: 1.5rem;
     }
-    max-height: 3rem;
   }
   &__price {
     display: inline-block;
+
+    @include respond(tab-port) {
+      font-size: 3rem;
+    }
   }
   &__remove {
     @include button;
@@ -59,6 +79,13 @@
     border-radius: 1rem;
     font-size: 1.8rem;
     box-shadow: $box-shadow;
+
+    @include respond(tab-land) {
+      margin-left: 2rem;
+      margin-right: 0;
+      height: 8rem;
+      font-size: 2rem;
+    }
 
     &:focus {
       outline: 1px solid $color_button_1;

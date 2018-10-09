@@ -1,21 +1,12 @@
-import React, { Component } from "react";
-import ShopItem from "./ShopItem";
-import "../style/ShopList.scss";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import React, { Component } from 'react';
+import ShopItem from './ShopItem';
+import '../style/ShopList.scss';
+import FlipMove from 'react-flip-move';
 
 class ShopList extends Component {
   render() {
     return (
-      <ReactCSSTransitionGroup
-        className="ShopList"
-        transitionName="fade"
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={true}
-        transitionLeave={true}
-      >
+      <FlipMove className="ShopList">
         {this.props.shopItems.map(item => {
           return (
             <ShopItem
@@ -25,7 +16,7 @@ class ShopList extends Component {
             />
           );
         })}
-      </ReactCSSTransitionGroup>
+      </FlipMove>
     );
   }
 }

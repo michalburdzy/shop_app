@@ -1,14 +1,25 @@
-@import "variables";
+@import 'variables';
+@import 'mixins';
 .cart {
   &__body {
     z-index: 1000;
     position: absolute;
-    width: 60vw;
-    left: 15vw;
+    width: 80vw;
+    left: 10vw;
     top: 0;
+    margin-top: 8rem;
     min-height: 8rem;
     line-height: 8rem;
     height: auto !important;
+
+    @include respond(desktop) {
+      left: 20vw;
+      width: 60vw;
+    }
+    @include respond(tab-land) {
+      left: 10vw;
+      width: 80vw;
+    }
 
     -webkit-transition: all 0.7s cubic-bezier(0.74, -0.61, 0.05, 1.53);
     -moz-transition: all 0.7s cubic-bezier(0.74, -0.61, 0.05, 1.53);
@@ -17,6 +28,7 @@
 
     &--hidden {
       transform: translateY(-105%);
+      margin-top: 0;
     }
     &--visible {
       transform: translateY(0);

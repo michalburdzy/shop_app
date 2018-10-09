@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "../style/CartItem.scss";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import '../style/CartItem.scss';
+import PropTypes from 'prop-types';
 
 class CartItem extends Component {
   constructor(props) {
@@ -40,11 +40,11 @@ class CartItem extends Component {
 
     return (
       <div className="cartItem">
-        <div className="cartItem__container">
+        <div className="cartItem__container cartItem__container--1">
           <img className="cartItem__image" src={image} alt="cart item" />
           <h3 className="cartItem__name">{name}</h3>
         </div>
-        <div className="cartItem__container">
+        <div className="cartItem__container cartItem__container--2">
           <p className="cartItem__price">${price}</p>
           <input
             // pattern="\d{3}"
@@ -70,8 +70,8 @@ CartItem.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.number,
-    amount: PropTypes.number
-  })
+    amount: PropTypes.number,
+  }),
 };
 
 export default CartItem;
